@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculadora</title>
+    <h1>Calculadora</h1>
+
+    <p>Informe o numero 1</p>
+    <input id="num1" type="number">
+
+    <p>Informe o numero 2</p>
+    <input id="num2" type="number">
+
+    <br>
+    <br>
+
+    <button type="button"onclick="calcular('Somar')">Somar</button>
+    <button type="button"onclick="calcular('Subtrair')">Subtrair</button>
+    <button type="button"onclick="calcular('Multiplicar')">Multiplicar</button>
+    <button type="button"onclick="calcular('Dividir')">Dividir</button>
+
+    <h4>Resultado</h4>
+    <div id='resultado'></div>
+
+    <script>
+
+        function calcular(Operação){
+        var numero1 = parseFloat (document.getElementById('num1').value);
+        var numero2 = parseFloat (document.getElementById('num2').value);
+
+        switch(Operação){
+            case 'Somar':
+            resultado = numero1 + numero2
+            break
+
+            case 'Subtrair':
+            resultado = numero1 - numero2
+            break
+
+            case 'Multiplicar':
+            resultado = numero1 * numero2
+            break
+
+            case 'Dividir':
+            if (numero2 == 0){
+                resultado = 'Não é possivel dividir por zero'
+            } else {
+                resultado = numero1 / numero2
+            }
+            break
+        }
+
+        document.getElementById('resultado').innerHTML = resultado
+        }
+
+    </script>
+</head>
+<body>
+    
+</body>
+</html>
