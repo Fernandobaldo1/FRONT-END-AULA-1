@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mini Netflix</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header class="topo">
+    <h1>Mini Netflix</h1>
+    <nav>
+        <a href="#">Inicio</a>
+        <a href="#">Series</a>
+        <a href="#">Filmes</a>
+    </nav>
+  </header>
+
+  <main>
+    <!-- Banner principal -->
+    <section class="banner">
+    <div class="Info-banner">
+      <h2>The dark knight</h2>
+      <a href="#detalhes-acao1" class="btn">Ver Detalhes</a>
+    </div>
+    </section>
+
+    <!-- Categoria Ação -->
+    <section class="categoria">
+      <h2>Ação</h2>
+      <div class="carrossel">
+        <article class="filme"><a href="#detalhes-acao1"><img src="imagens/acao1.jpg" alt="Filme de Ação 1"></a></article>
+        <article class="filme"><a href="#detalhes-acao2"><img src="imagens/acao2.jpg" alt="Filme de Ação 2"></a></article>
+        <article class="filme"><a href="#detalhes-acao3"><img src="imagens/acao3.jpg" alt="Filme de Ação 3"></a></article>
+      </div>
+    </section>
+
+    <!-- Categoria Comédia -->
+    <section class="categoria">
+      <h2>comédia</h2>
+      <div class="carrossel">
+        <article class="filme"><a href="#detalhes-comedia1"><img src="imagens/comedia1.jpg" alt="Filme de Comédia 1"></a></article>
+        <article class="filme"><a href="#detalhes-comedia2"><img src="imagens/comedia2.jpg" alt="Filme de Comédia 2"></a></article>
+        <article class="filme"><a href="#detalhes-comedia3"><img src="imagens/comedia3.jpg" alt="Filme de Comédia 3"></a></article>
+      </div>
+    </section>
+  </main>
+
+   <!-- Categoria terror -->
+    <section class="categoria">
+      <h2>Terror</h2>
+      <div class="carrossel">
+        <article class="filme"><a href="#detalhes-terror1"><img src="imagens/terror1.jpg" alt="Filme de Terror 1"></a></article>
+        <article class="filme"><a href="#detalhes-terror2"><img src="imagens/terror2.jpg" alt="Filme de Terror 2"></a></article>
+        <article class="filme"><a href="#detalhes-terror3"><img src="imagens/terror3.jpg" alt="Filme de Terror 3"></a></article>
+      </div>
+    </section>
+  </main>
+
+  <!-- Categoria animação -->
+    <section class="categoria">
+      <h2>Animação</h2>
+      <div class="carrossel">
+        <article class="filme"><a href="#detalhes-animação1"><img src="imagens/animação1.jpg" alt="Filme de animação 1"></a></article>
+        <article class="filme"><a href="#detalhes-animação2"><img src="imagens/animação2.jpg" alt="Filme de animação 2"></a></article>
+        <article class="filme"><a href="#detalhes-animação3"><img src="imagens/animação3.jpg" alt="Filme de animação 3"></a></article>
+      </div>
+    </section>
+  </main>
+
+  <!-- Modal de detalhes -->
+  <div id="detalhes-acao1" class="modal">
+    <div class="conteudo-modal">
+      <a href="#" class="fechar">X</a>
+      <img src="imagens/acao1.jpg" alt="Filme de Ação 1">
+      <h3>Filme de Ação 1</h3>
+      <p>Sinopse: Um herói enfrenta grandes desafios para salvar o mundo.</p>
+    </div>
+  </div>
+
+    <div id="detalhes-acao2" class="modal">
+    <div class="conteudo-modal">
+      <a href="#" class="fechar">X</a>
+      <img src="imagens/acao2.jpg" alt="Filme de Ação 2">
+      <h3>Filme de Ação 2</h3>
+      <p>Steven saege.</p>
+    </div>
+  </div>
+
+    <div id="detalhes-acao3" class="modal">
+    <div class="conteudo-modal">
+      <a href="#" class="fechar">X</a>
+      <img src="imagens/acao3.jpg" alt="Filme de Ação 3">
+      <h3>Filme de Ação 3</h3>
+      <p>O gladiador.</p>
+    </div>
+  </div>
+
+    <div id="detalhes-comedia1" class="modal">
+    <div class="conteudo-modal">
+      <a href="#" class="fechar">X</a>
+      <img src="imagens/comedia1.jpg" alt="Filme de comedia 1">
+      <h3>Filme de comedia 1</h3>
+      <p>Bad boys.</p>
+    </div>
+  </div>
+
+    <div id="detalhes-comedia2" class="modal">
+    <div class="conteudo-modal">
+      <a href="#" class="fechar">X</a>
+      <img src="imagens/comedia2.jpg" alt="Filme de comedia 2">
+      <h3>Filme de comedia 2</h3>
+      <p>Minha mãe é uma peça.</p>
+    </div>
+  </div>
+
+    <div id="detalhes-comedia3" class="modal">
+    <div class="conteudo-modal">
+      <a href="#" class="fechar">X</a>
+      <img src="imagens/comedia3.jpg" alt="Filme de comedia 3">
+      <h3>Filme de comedia 3</h3>
+      <p>Todo mundo em panico 5.</p>
+    </div>
+  </div>
+
+    <div id="detalhes-terror1" class="modal">
+    <div class="conteudo-modal">
+      <a href="#" class="fechar">X</a>
+      <img src="imagens/terror1.jpg" alt="Filme de comedia 1">
+      <h3>Filme de terror 1</h3>
+      <p>Smile.</p>
+    </div>
+  </div>
+
+    <div id="detalhes-terror2" class="modal">
+    <div class="conteudo-modal">
+      <a href="#" class="fechar">X</a>
+      <img src="imagens/terror2.jpg" alt="Filme de terror 2">
+      <h3>Filme de terror 2</h3>
+      <p>Maligno.</p>
+    </div>
+  </div>
+
+    <div id="detalhes-terror3" class="modal">
+    <div class="conteudo-modal">
+      <a href="#" class="fechar">X</a>
+      <img src="imagens/terror3.jpg" alt="Filme de terror 3">
+      <h3>Filme de terror 3</h3>
+      <p>Anabelle.</p>
+    </div>
+  </div>
+
+      <div id="detalhes-animação1" class="modal">
+    <div class="conteudo-modal">
+      <a href="#" class="fechar">X</a>
+      <img src="imagens/animação1.jpg" alt="Filme de animação 1">
+      <h3>Filme de animação 1</h3>
+      <p>Mansão magica.</p>
+    </div>
+  </div>
+
+      <div id="detalhes-animação2" class="modal">
+    <div class="conteudo-modal">
+      <a href="#" class="fechar">X</a>
+      <img src="imagens/animação2.jpg" alt="Filme de animação 2">
+      <h3>Filme de animação 2</h3>
+      <p>Frankie.</p>
+    </div>
+  </div>
+
+      <div id="detalhes-animação3" class="modal">
+    <div class="conteudo-modal">
+      <a href="#" class="fechar">X</a>
+      <img src="imagens/animação3.jpg" alt="Filme de animação 3">
+      <h3>Filme de animação 3</h3>
+      <p>Chaninsaw man.</p>
+    </div>
+  </div>
+
+</body>
+</html>
