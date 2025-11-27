@@ -1,0 +1,93 @@
+{
+    "Linguagem de programação" : [
+        {
+            "titulo" : "JavaScript",
+            "ano" : "1995",
+            "capa" : "OIP.webp",
+            "criador" : "Brendan Eich (Netscape)",
+            "Tempo de existencia" : "35 anos",
+            "descrição" : "A linguagem dominante para desenvolvimento web (front-end e back-end com Node.js), jogos e aplicações web."
+        },
+
+        {
+            "titulo" : "Python",
+            "ano" : "1991",
+            "capa" : "",
+            "criador" : "Guido van Rossum",
+            "Tempo de existencia" : "34 anos",
+            "descrição" : "Conhecida por sua sintaxe simples e legibilidade, é líder em Inteligência Artificial, Machine Learning, Ciência de Dados e automação."
+        },
+
+        {
+            "titulo" : "Css",
+            "ano" : "1996",
+            "capa" : "",
+            "criador" : "Håkon Wium Lie e Bert Bos",
+            "Tempo de existencia" : "29 anos",
+            "descrição" : "Uma linguagem de estilo que define a aparência visual e o design das páginas web."
+        },
+
+        {
+            "titulo" : "Html",
+            "ano" : "1991",
+            "capa" : "",
+            "criador" : "Tim Berners-Lee",
+            "Tempo de existencia" : "34 anos",
+            "descrição" : "Uma linguagem de marcação que estrutura o conteúdo de páginas web."
+        },
+
+        {
+            "titulo" : "Java",
+            "ano" : "1995",
+            "capa" : "",
+            "criador" : "James Gosling e equipe (Sun Microsystems)",
+            "Tempo de existencia" : "30 anos",
+            "descrição" : "Uma linguagem robusta e orientada a objetos, muito utilizada em aplicações empresariais de grande escala e desenvolvimento Android (embora Kotlin seja o padrão atual)."
+        },
+
+        {
+            "titulo" : "SQL",
+            "ano" : "1970 e comercial em 1979",
+            "capa" : "",
+            "criador" : "Donald Chamberlin e Raymond Boyce (IBM)",
+            "Tempo de existencia" : "54 anos(desde o lançamento comercial)",
+            "descrição" : "Uma linguagem para gerenciar e consultar dados em bancos de dados."
+        },
+
+        {
+            "titulo" : "PHP",
+            "ano" : "1995",
+            "capa" : "",
+            "criador" : "Rasmus Lerdorf",
+            "Tempo de existencia" : "30 anos",
+            "descrição" : "Focada em desenvolvimento web back-end, é a base de muitos sistemas de gerenciamento de conteúdo, como o WordPress."
+        },
+
+        {
+            "titulo" : "C#",
+            "ano" : "2000",
+            "capa" : "",
+            "criador" : "Anders Hejlsberg e equipe (Microsoft)",
+            "Tempo de existencia" : "25 anos",
+            "descrição" : "Desenvolvida pela Microsoft, é amplamente utilizada para aplicações Windows, jogos (com Unity) e software empresarial."
+        },
+
+        {
+            "titulo" : "C++",
+            "ano" : "1979",
+            "capa" : "",
+            "criador" : "Bjarne Stroustrup",
+            "Tempo de existencia" : "46 anos",
+            "descrição" : "Oferece alto desempenho e é usada em sistemas críticos, desenvolvimento de jogos de ponta e software que exige performance máxima."
+        },
+
+        {
+            "titulo" : "TypeScript",
+            "ano" : "2012",
+            "capa" : "",
+            "criador" : "Anders Hejlsberg (Microsoft)",
+            "Tempo de existencia" : "13 anos",
+            "descrição" : ": Um superconjunto de JavaScript que adiciona tipagem estática, tornando o código mais seguro e fácil de manter em grandes projetos. "
+        }
+    ]
+}

@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Linguagens de programação</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header class="win-header">
+        <h1>Gerenciador de Linguagens (JSON)</h1>
+        <!---Chamar json-->
+    </header>
+
+    <main>
+        <!-- Busca/Listar tudo/Adicionar novas linguagens -->
+        <section class="search-box">
+            <input type="text" id="searchInput" placeholder="Pesquisar por linguagem">
+            <button id="btnSearch">Buscar</button>
+            <button id="btnListAll">Listar tudo</button>
+            <button id="btnAdd">Adicionar nova linguagem</button>
+        </section>
+        <section id="linguageList" class="lenguage-list"></section>
+    </main>
+
+    <!--Modal e ids-->
+    <div id="modal" class="modal">
+        <div class="modal-content">
+            <h2 id="modalTitle">Editar linguagem</h2>
+
+            <form id="lenguageForm">
+                <label>Linguagem</label>
+                <input type="text" id="nome">
+
+                <label>Ano</label>
+                <input type="text" id="ano">
+
+                <label>Criador</label>
+                <input type="text" id="criador">
+
+                <label>Tempo de existência</label>
+                <input type="text" id="tempo">
+
+                <label>Descrição</label>
+                <input type="text" id="descricao">
+
+                <label>Capa (URL da imagem)</label>
+                <input type="text" id="capa">
+
+                <div class="modal-btns">
+                    <button type="submit">Salvar</button>
+                    <button type="button" id="btnClose">Cancelar</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!--Chamar o javaScript para o codigo-->
+    <script src="script.js"></script>
+</body>
+</html>
