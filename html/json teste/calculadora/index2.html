@@ -1,0 +1,387 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Calculadora — Estilo Windows</title>
+  <style>
+    :root{
+      --bg:#f3f4f6; /* light window background */
+      --panel:#e6e7e9;
+      --display:#111827; /* dark text */
+      --key:#ffffff;
+      --key-secondary:#f4f6f8;
+      --accent:#0b5ed7; /* blue like windows */
+      --accent-pressed:#084ea8;
+      --muted:#6b7280;
+      --shadow: 0 8px 20px rgba(2,6,23,0.08);
+      font-family: "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+    }
+
+    *{box-sizing:border-box}
+    html,body{height:100%}
+    body{
+      margin:0;
+      background: linear-gradient(180deg,var(--bg),#ffffff);
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      padding:32px;
+      -webkit-font-smoothing:antialiased;
+      -moz-osx-font-smoothing:grayscale;
+    }
+
+    /* Calculator shell */
+    .calc {
+      width: 380px;
+      border-radius:12px;
+      background:var(--panel);
+      box-shadow: var(--shadow);
+      padding:14px;
+      border:1px solid rgba(0,0,0,0.06);
+    }
+
+    /* Header (title + mode) */
+    .calc .header{
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:12px;
+      margin-bottom:10px;
+    }
+    .title{
+      font-weight:600;
+      color:var(--muted);
+      font-size:14px;
+      display:flex;
+      gap:8px;
+      align-items:center;
+    }
+    .title .dot{width:10px;height:10px;border-radius:50%;background:var(--accent)}
+
+    .mode{
+      font-size:12px;color:var(--muted);background:transparent;border:0;cursor:default
+    }
+
+    /* display */
+    .display-wrap{
+      background:linear-gradient(180deg,#fff 0%,#fafafa 100%);
+      border-radius:8px;
+      padding:12px 10px;
+      margin-bottom:12px;
+      display:flex;
+      flex-direction:column;
+      gap:6px;
+      border:1px solid rgba(0,0,0,0.04);
+    }
+
+    .sub-display{
+      font-size:12px;color:var(--muted);min-height:16px;text-align:right;padding-right:6px;word-break:break-all
+    }
+    .main-display{
+      font-size:36px;font-weight:600;color:var(--display);text-align:right;padding-right:6px;line-height:1;min-height:46px;letter-spacing:0.5px
+    }
+
+    /* keypad */
+    .keys{
+      display:grid;
+      grid-template-columns: repeat(4,1fr);
+      gap:10px;
+    }
+
+    button.key{
+      border:0;padding:14px;border-radius:8px;background:var(--key);font-size:16px;font-weight:600;box-shadow:0 4px 8px rgba(11,27,44,0.06);cursor:pointer;transition:all .12s ease;user-select:none
+    }
+    button.key:active{transform:translateY(1px)}
+
+    button.btn-fn{background:var(--key-secondary);font-weight:600;color:var(--muted)}
+    button.btn-op{background:linear-gradient(180deg,var(--accent),var(--accent-pressed));color:#fff}
+    button.btn-wide{grid-column: span 2}
+
+    /* special tiny text for small labels like 1/x */
+    .small{font-size:13px}
+
+    /* responsive */
+    @media (max-width:420px){
+      .calc{width:94vw}
+      .main-display{font-size:30px}
+    }
+  </style>
+</head>
+<body>
+  <main class="calc" role="application" aria-label="Calculadora estilo Windows">
+    <div class="header">
+      <div class="title"><span class="dot" aria-hidden></span> Calculadora</div>
+      <div class="mode">Padrão</div>
+    </div>
+
+    <section class="display-wrap">
+      <div id="subDisplay" class="sub-display" aria-live="polite"></div>
+      <div id="mainDisplay" class="main-display" role="status" aria-live="assertive">0</div>
+    </section>
+
+    <section class="keys" role="region" aria-label="Teclado da calculadora">
+      <button class="key btn-fn" data-action="mc">MC</button>
+      <button class="key btn-fn" data-action="mr">MR</button>
+      <button class="key btn-fn" data-action="ms">MS</button>
+      <button class="key btn-fn" data-action="mplus">M+</button>
+
+      <button class="key btn-fn" data-action="back">⌫</button>
+      <button class="key btn-fn" data-action="ce">CE</button>
+      <button class="key btn-fn" data-action="c">C</button>
+      <button class="key btn-op" data-action="divide">÷</button>
+
+      <button class="key" data-digit="7">7</button>
+      <button class="key" data-digit="8">8</button>
+      <button class="key" data-digit="9">9</button>
+      <button class="key btn-op" data-action="multiply">×</button>
+
+      <button class="key" data-digit="4">4</button>
+      <button class="key" data-digit="5">5</button>
+      <button class="key" data-digit="6">6</button>
+      <button class="key btn-op" data-action="subtract">−</button>
+
+      <button class="key" data-digit="1">1</button>
+      <button class="key" data-digit="2">2</button>
+      <button class="key" data-digit="3">3</button>
+      <button class="key btn-op" data-action="add">+</button>
+
+      <button class="key btn-fn" data-action="neg">±</button>
+      <button class="key" data-digit="0">0</button>
+      <button class="key" data-action="decimal">.</button>
+      <button class="key btn-op" data-action="equals">=</button>
+
+      <!-- Extra row-like small functions (span full width by using grid placement) -->
+      <button class="key btn-fn btn-wide" style="grid-column:1/3" data-action="sqrt">√</button>
+      <button class="key btn-fn" data-action="percent">%</button>
+      <button class="key btn-fn" data-action="recip">1/x</button>
+    </section>
+  </main>
+
+  <script>
+    (function(){
+      const mainDisplay = document.getElementById('mainDisplay');
+      const subDisplay = document.getElementById('subDisplay');
+      const keys = document.querySelector('.keys');
+
+      const state = {
+        displayValue: '0',
+        waitingForOperand: false,
+        operator: null,
+        firstOperand: null,
+        memory: 0,
+        lastButtonEquals: false
+      };
+
+      function updateDisplays(){
+        mainDisplay.textContent = formatNumberForDisplay(state.displayValue);
+        if(state.operator && state.firstOperand !== null){
+          subDisplay.textContent = `${formatNumberForDisplay(state.firstOperand)} ${operatorSymbol(state.operator)}`;
+        } else {
+          subDisplay.textContent = '';
+        }
+      }
+
+      function formatNumberForDisplay(value){
+        // Keep it simple — if it's a very long number, use exponential
+        try{
+          let num = Number(value);
+          if(!isFinite(num)) return 'Erro';
+          // Show integer without unnecessary decimals
+          if(Math.abs(num) >= 1e12 || (num !== 0 && Math.abs(num) < 1e-9)){
+            return num.toExponential(10).replace(/(?:\.0+|(?<=\.[0-9]*?)0+)$/,'');
+          }
+          // Limit decimals to 10
+          let s = num.toLocaleString('en-US',{maximumFractionDigits:10});
+          return s;
+        } catch(e){return value}
+      }
+
+      function operatorSymbol(op){
+        return { add: '+', subtract: '−', multiply: '×', divide: '÷' }[op] || '';
+      }
+
+      function inputDigit(digit){
+        if(state.waitingForOperand || state.lastButtonEquals){
+          state.displayValue = digit;
+          state.waitingForOperand = false;
+          state.lastButtonEquals = false;
+        } else {
+          if(state.displayValue === '0') state.displayValue = digit;
+          else state.displayValue += digit;
+        }
+        updateDisplays();
+      }
+
+      function inputDecimal(){
+        if(state.waitingForOperand || state.lastButtonEquals){
+          state.displayValue = '0.';
+          state.waitingForOperand = false;
+          state.lastButtonEquals = false;
+        } else if(!state.displayValue.includes('.')){
+          state.displayValue += '.';
+        }
+        updateDisplays();
+      }
+
+      function clearAll(){
+        state.displayValue = '0';
+        state.operator = null;
+        state.firstOperand = null;
+        state.waitingForOperand = false;
+        state.lastButtonEquals = false;
+        updateDisplays();
+      }
+
+      function clearEntry(){
+        state.displayValue = '0';
+        updateDisplays();
+      }
+
+      function backspace(){
+        if(state.lastButtonEquals){
+          clearAll();
+          return;
+        }
+        if(state.displayValue.length === 1 || (state.displayValue.length === 2 && state.displayValue.startsWith('-'))){
+          state.displayValue = '0';
+        } else {
+          state.displayValue = state.displayValue.slice(0,-1);
+        }
+        updateDisplays();
+      }
+
+      function toggleSign(){
+        if(state.displayValue === '0') return;
+        if(state.displayValue.startsWith('-')) state.displayValue = state.displayValue.slice(1);
+        else state.displayValue = '-' + state.displayValue;
+        updateDisplays();
+      }
+
+      function inputPercent(){
+        let val = Number(state.displayValue);
+        val = val / 100;
+        state.displayValue = String(val);
+        updateDisplays();
+      }
+
+      function inputSqrt(){
+        let val = Number(state.displayValue);
+        if(val < 0){ state.displayValue = 'Erro'; }
+        else state.displayValue = String(Math.sqrt(val));
+        state.lastButtonEquals = true;
+        updateDisplays();
+      }
+
+      function reciprocal(){
+        let val = Number(state.displayValue);
+        if(val === 0){ state.displayValue = 'Erro'; }
+        else state.displayValue = String(1/val);
+        state.lastButtonEquals = true;
+        updateDisplays();
+      }
+
+      function handleOperator(nextOperator){
+        const inputValue = Number(state.displayValue);
+        if(state.firstOperand == null){
+          state.firstOperand = inputValue;
+        } else if(state.operator){
+          const result = performCalculation(state.operator, state.firstOperand, inputValue);
+          state.firstOperand = Number(result);
+          state.displayValue = String(result);
+        }
+        state.operator = nextOperator;
+        state.waitingForOperand = true;
+        state.lastButtonEquals = false;
+        updateDisplays();
+      }
+
+      function performCalculation(operator, first, second){
+        switch(operator){
+          case 'add': return first + second;
+          case 'subtract': return first - second;
+          case 'multiply': return first * second;
+          case 'divide': return second === 0 ? Infinity : first / second;
+        }
+        return second;
+      }
+
+      function handleEquals(){
+        const inputValue = Number(state.displayValue);
+        if(state.operator && state.firstOperand != null){
+          const result = performCalculation(state.operator, state.firstOperand, inputValue);
+          state.displayValue = String(result === Infinity ? 'Erro' : result);
+          state.firstOperand = null;
+          state.operator = null;
+          state.lastButtonEquals = true;
+          state.waitingForOperand = false;
+          updateDisplays();
+        }
+      }
+
+      // Memory functions
+      function memoryClear(){ state.memory = 0; }
+      function memoryRecall(){ state.displayValue = String(state.memory); state.lastButtonEquals = false; updateDisplays(); }
+      function memoryStore(){ state.memory = Number(state.displayValue); state.lastButtonEquals = false; }
+      function memoryAdd(){ state.memory = state.memory + Number(state.displayValue); }
+
+      keys.addEventListener('click', e=>{
+        const btn = e.target.closest('button');
+        if(!btn) return;
+        const digit = btn.getAttribute('data-digit');
+        const action = btn.getAttribute('data-action');
+
+        if(digit) inputDigit(digit);
+        else if(action){
+          switch(action){
+            case 'decimal': inputDecimal(); break;
+            case 'ce': clearEntry(); break;
+            case 'c': clearAll(); break;
+            case 'back': backspace(); break;
+            case 'neg': toggleSign(); break;
+            case 'percent': inputPercent(); break;
+            case 'sqrt': inputSqrt(); break;
+            case 'recip': reciprocal(); break;
+            case 'add': handleOperator('add'); break;
+            case 'subtract': handleOperator('subtract'); break;
+            case 'multiply': handleOperator('multiply'); break;
+            case 'divide': handleOperator('divide'); break;
+            case 'equals': handleEquals(); break;
+            case 'mc': memoryClear(); break;
+            case 'mr': memoryRecall(); break;
+            case 'ms': memoryStore(); break;
+            case 'mplus': memoryAdd(); break;
+          }
+        }
+      });
+
+      // keyboard support
+      window.addEventListener('keydown', e=>{
+        if(e.key >= '0' && e.key <= '9'){
+          inputDigit(e.key); e.preventDefault();
+        } else if(e.key === '.'){
+          inputDecimal(); e.preventDefault();
+        } else if(e.key === 'Backspace'){
+          backspace(); e.preventDefault();
+        } else if(e.key === 'Escape'){
+          clearAll(); e.preventDefault();
+        } else if(e.key === 'Enter' || e.key === '='){
+          handleEquals(); e.preventDefault();
+        } else if(e.key === '+'){
+          handleOperator('add'); e.preventDefault();
+        } else if(e.key === '-'){
+          handleOperator('subtract'); e.preventDefault();
+        } else if(e.key === '*' ){
+          handleOperator('multiply'); e.preventDefault();
+        } else if(e.key === '/'){
+          handleOperator('divide'); e.preventDefault();
+        }
+      });
+
+      // init
+      updateDisplays();
+
+    })();
+  </script>
+</body>
+</html>

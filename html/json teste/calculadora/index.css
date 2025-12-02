@@ -1,0 +1,95 @@
+:root{
+    --bg:#f3f4f6;
+    --panel:#e6e7e9;
+    --display:#111827;
+    --key:#ffffff;
+    --key-secondary:#f4f6f8;
+    --accent:#0b5ed7;
+    --accent-pressed:#084ea8;
+    --muted:#6b7280;
+    --shadow: 0 8px 20px rgba(2,6,23,0.08);
+    font-family: "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  }
+  
+  *{box-sizing:border-box}
+  html,body{height:100%}
+  body{
+    margin:0;
+    background: linear-gradient(180deg,var(--bg),#ffffff);
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    padding:32px;
+    -webkit-font-smoothing:antialiased;
+    -moz-osx-font-smoothing:grayscale;
+  }
+  
+  .calc {
+    width: 380px;
+    border-radius:12px;
+    background:var(--panel);
+    box-shadow: var(--shadow);
+    padding:14px;
+    border:1px solid rgba(0,0,0,0.06);
+  }
+  
+  .calc .header{
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    gap:12px;
+    margin-bottom:10px;
+  }
+  .title{
+    font-weight:600;
+    color:var(--muted);
+    font-size:14px;
+    display:flex;
+    gap:8px;
+    align-items:center;
+  }
+  .title .dot{width:10px;height:10px;border-radius:50%;background:var(--accent)}
+  
+  .mode{
+    font-size:12px;color:var(--muted);background:transparent;border:0;cursor:default
+  }
+  
+  .display-wrap{
+    background:linear-gradient(180deg,#fff 0%,#fafafa 100%);
+    border-radius:8px;
+    padding:12px 10px;
+    margin-bottom:12px;
+    display:flex;
+    flex-direction:column;
+    gap:6px;
+    border:1px solid rgba(0,0,0,0.04);
+  }
+  
+  .sub-display{
+    font-size:12px;color:var(--muted);min-height:16px;text-align:right;padding-right:6px;word-break:break-all
+  }
+  .main-display{
+    font-size:36px;font-weight:600;color:var(--display);text-align:right;padding-right:6px;line-height:1;min-height:46px;letter-spacing:0.5px
+  }
+  
+  .keys{
+    display:grid;
+    grid-template-columns: repeat(4,1fr);
+    gap:10px;
+  }
+  
+  button.key{
+    border:0;padding:14px;border-radius:8px;background:var(--key);font-size:16px;font-weight:600;box-shadow:0 4px 8px rgba(11,27,44,0.06);cursor:pointer;transition:all .12s ease;user-select:none
+  }
+  button.key:active{transform:translateY(1px)}
+  
+  button.btn-fn{background:var(--key-secondary);font-weight:600;color:var(--muted)}
+  button.btn-op{background:linear-gradient(180deg,var(--accent),var(--accent-pressed));color:#fff}
+  button.btn-wide{grid-column: span 2}
+  
+  .small{font-size:13px}
+  
+  @media (max-width:420px){
+    .calc{width:94vw}
+    .main-display{font-size:30px}
+  }

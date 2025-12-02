@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en-US">
+    <script src="script.js"></script>
+    <link rel="stylesheet" href="index.css">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculadora</title>
+</head>
+<body>
+    <main class="Calc" role="application" aria-label="Calculadora estilo windowns">
+        <div class="header">
+            <div class="title"><span class="dot" aria-hidden=""></span>Calculadora</div>
+            <div class="mode">Padrão</div>
+        </div>
+
+        <section class="display-wrap">
+            <div id="subDisplay" class="sub-display" aria-live="polite"></div>
+            <div id="main-display" class="main-display" role="status" aria-live="assertive">0</div>
+        </section>
+
+    <!--Seção das keys da calculadora-->
+    <section class="keys" role="region" aria-label="Teclado da calculadora">
+        <button class="key btn-fn" data-action="mc">MC</button>
+        <button class="key btn-fn" data-action="mr">MR</button>
+        <button class="key btn-fn" data-action="ms">MS</button>
+        <button class="key btn-fn" data-action="mplus">M+</button>
+  
+        <button class="key btn-fn" data-action="back">⌫</button>
+        <button class="key btn-fn" data-action="ce">CE</button>
+        <button class="key btn-fn" data-action="c">C</button>
+        <button class="key btn-op" data-action="divide">÷</button>
+  
+        <button class="key" data-digit="7">7</button>
+        <button class="key" data-digit="8">8</button>
+        <button class="key" data-digit="9">9</button>
+        <button class="key btn-op" data-action="multiply">×</button>
+  
+        <button class="key" data-digit="4">4</button>
+        <button class="key" data-digit="5">5</button>
+        <button class="key" data-digit="6">6</button>
+        <button class="key btn-op" data-action="subtract">−</button>
+  
+        <button class="key" data-digit="1">1</button>
+        <button class="key" data-digit="2">2</button>
+        <button class="key" data-digit="3">3</button>
+        <button class="key btn-op" data-action="add">+</button>
+
+        <button class="key btn-fn" data-action="neg">±</button>
+        <button class="key" data-digit="0">0</button>
+        <button class="Key" data-action="decimal">.</button>
+        <button class="key btn-fn" data-action="igual">=</button>
+    </section>
+    </main>
+</body>
+</html>
